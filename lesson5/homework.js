@@ -74,7 +74,7 @@ createUlDinamic('Hello World', 3)
 // // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
 
 let newArray = [150,'Stepan Giga', false, 'Ivo Bobul'];
-let = primitives => (array){
+let primitives = (array) =>{
     document.write(`<ol>`)
     for (let i = 0; i < array.length; i++) {
         document.write(`<li>${array[i]}</li>`);
@@ -87,7 +87,7 @@ primitives(newArray);
 // // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
 
 let newArray = [{id: 1, name: 'Vasya', age: 30}, {id: 2, name: 'Ivan', age: 25}, {id: 3, name: 'Viktor', age: 35}];
-let = objArray => (array) {
+let objArray = (array) => {
     for (const arrayElement of array) {
         document.write(`<div>${arrayElement.id}.${arrayElement.name} - ${arrayElement.age}</div>`);
     }
