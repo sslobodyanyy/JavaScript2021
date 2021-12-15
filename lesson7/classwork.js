@@ -42,7 +42,7 @@ function car(model, manufacturer, year, maxSpeed, volume ) {
 // -- changeYear (newValue) - змінює рік випуску на значення newValue
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
 
-class ClassCar {
+class classCar {
     constructor(model, manufacturer, year, maxSpeed, volume) {
         this.model = model;
         this.manufacturer = manufacturer;
@@ -72,24 +72,24 @@ class ClassCar {
 
 // -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
 
-class Cinderella {
+class cinderella {
     constructor(name, age, size) {
         this.name = name;
         this.age = age;
         this.size = size;
     }
 }
-let Cinderellas = [
-    new Cinderella('Cinderella1', 15, 36,),
-    new Cinderella('Cinderella2', 17, 38,),
-    new Cinderella('Cinderella3', 19, 37,),
-    new Cinderella('Cinderella4', 21, 34,),
-    new Cinderella('Cinderella5', 22, 36,),
-    new Cinderella('Cinderella6', 16, 33,),
-    new Cinderella('Cinderella7', 19, 40,),
-    new Cinderella('Cinderella8', 20, 39,),
-    new Cinderella('Cinderella9', 23, 37,),
-    new Cinderella('Cinderella10', 25, 41,)
+let cinderellas = [
+    new cinderella('Cinderella1', 15, 36,),
+    new cinderella('Cinderella2', 17, 38,),
+    new cinderella('Cinderella3', 19, 37,),
+    new cinderella('Cinderella4', 21, 34,),
+    new cinderella('Cinderella5', 22, 36,),
+    new cinderella('Cinderella6', 16, 33,),
+    new cinderella('Cinderella7', 19, 40,),
+    new cinderella('Cinderella8', 20, 39,),
+    new cinderella('Cinderella9', 23, 37,),
+    new cinderella('Cinderella10', 25, 41,)
 ];
 
 
@@ -107,6 +107,6 @@ class prince {
 //     За допомоги циклу знайти яка попелюшка повинна бути з принцом.
 //     Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
 
-let Prince = new Prince('Artur', 35, 37);
+let prince = new prince('Artur', 35, 37);
 
-let CinderellaShoe = Cinderellas.find(value => value.size === Prince.shoe);
+let cinderellaShoe = cinderellas.find(value => value.size === prince.shoe);
