@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>post-details</title>
+  </head>
+  <body>
+    <script type="module">
+      const isObject = (obj) => {
+        return typeof obj === "object" && obj !== null;
+      };
+
+      const describeObject = (obj) => {
+        const objDiv = document.createElement("div");
+
+        for (let key in obj) {
+          const value = obj[key];
+
+          const div = document.createElement("div");
+
+          if (isObject(value)) {
+            const childDiv = describeObject(value);
+
+            div.appendChild(document.createTextNode(`${key}: `));
+            div.appendChild(childDiv);
+          } else {
+            div.appendChild(document.createTextNode(`${key}: ${value}`));
+          }
+
+          objDiv.appendChild(div);
+        }
+
+        return objDiv;
+      };
+
+      const post = JSON.parse(localStorage.getItem("post"));
+      const postDiv = describeObject(post);
+
+      document.body.appendChild(postDiv);
+      document.body.appendChild(document.createElement("br"));
+      document.body.appendChild(document.createElement("br"));
+
+      fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
+        .then((response) => response.json())
+        .then((comments) =>
+          comments.forEach((comment) => {
+            console.log(comment);
+
+            const commentDiv = describeObject(comment);
+            document.body.appendChild(commentDiv);
+            document.body.appendChild(document.createElement("br"));
+          })
+        );
+    </script>
+  </body>
+</html>
