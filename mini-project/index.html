@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>index</title>
+  </head>
+  <body>
+    <script type="module">
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then((response) => response.json())
+        .then((users) =>
+          users.forEach((user) => {
+            const div = document.createElement("div");
+            const link = document.createElement("a");
+            const text = document.createTextNode(`${user.id},${user.name}`);
+
+            link.href = "user-details.html";
+            link.appendChild(text);
+            link.onclick = () => {
+              localStorage.setItem("user", JSON.stringify(user));
+              console.log(`user has been stored in localStorage: ${user}`);
+            };
+
+            div.appendChild(link);
+            document.body.appendChild(div);
+          })
+        );
+    </script>
+  </body>
+</html>
